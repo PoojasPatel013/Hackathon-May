@@ -1,0 +1,58 @@
+{
+    "version": 1,
+    "formatters": {
+        "standard": {
+            "format": "%(asctime)s - [%(levelname)s] - %(name)s : %(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S"
+        },
+        "detailed": {
+            "format": "%(asctime)s - [%(levelname)s] - %(name)s - %(filename)s:%(lineno)d : %(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "INFO",
+            "formatter": "standard",
+            "stream": "ext://sys.stdout"
+        },
+        "file_handler": {
+            "class": "logging.FileHandler",
+            "level": "DEBUG",
+            "formatter": "detailed",
+            "filename": "/app/logs/disaster_prediction.log",
+            "mode": "a",
+            "encoding": "utf-8"
+        },
+        "error_file_handler": {
+            "class": "logging.FileHandler",
+            "level": "ERROR",
+            "formatter": "detailed",
+            "filename": "/app/logs/disaster_prediction_errors.log",
+            "mode": "a",
+            "encoding": "utf-8"
+        }
+    },
+    "loggers": {
+        "disaster_prediction": {
+            "level": "DEBUG",
+            "handlers": ["console", "file_handler", "error_file_handler"],
+            "propagate": false
+        },
+        "data_collection": {
+            "level": "INFO",
+            "handlers": ["console", "file_handler"],
+            "propagate": false
+        },
+        "model_training": {
+            "level": "DEBUG",
+            "handlers": ["console", "file_handler"],
+            "propagate": false
+        }
+    },
+    "root": {
+        "level": "WARNING",
+        "handlers": ["console"]
+    }
+}

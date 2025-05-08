@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airflow-scheduler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: airflow-scheduler
+  template:
+    spec:
+      containers:
+      - name: airflow-scheduler
+        image: apache/airflow:2.3.0
+        args: ["scheduler"]
+        env:
+        - name: AIRFLOW__CORE__EXECUTOR
+          value: LocalExecutor
+        - name: AIRFLOW__CORE__SQLALCHEMY_CONN
+          valueFrom:
+            secretKeyRef:
+              name: airflow-db-credentials
+              key: connection-string
+        volumeMounts:
+        - name: dags-volume
+          mountPath: /opt/airflow/dags
+      volumes:
+      - name: dags-volume
+        persistentVolumeClaim:
+          claimName: airflow-dags-pvc

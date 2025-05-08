@@ -1,0 +1,22 @@
+# Core data science packages
+numpy
+pandas
+scikit-learn
+plotly
+streamlit
+geopandas
+pyyaml
+
+# Workflow and scheduling
+schedule
+joblib
+
+# Logging and monitoring
+python-json-logger
+
+# Error handling and notifications
+requests
+
+# System tools
+setuptools
+wheel

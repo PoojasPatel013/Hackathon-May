@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: disaster-prediction
+
+resources:
+- deployments/disaster-prediction-deployment.yaml
+- deployments/airflow-deployment.yaml
+- services/disaster-prediction-service.yaml
+- services/airflow-service.yaml
+- persistent-volume-claims.yaml

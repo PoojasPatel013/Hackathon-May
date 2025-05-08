@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  streamlit-app:
+    build: 
+      context: ..
+      dockerfile: frontend/Dockerfile.prediction
+    ports:
+      - "8501:8501"
+    volumes:
+      - ../:/app
+      - ./data:/data
+      - ./logs:/logs
+      - ./models:/model
+      - ./predictions:/predictions
+    environment:
+      - MODEL_PATH=/model/disaster_risk_model.pkl
+      - WORKFLOW_CONFIG=/config/workflow_config.yaml
+      - LOGGING_CONFIG=/config/logging_config.json
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+
+  database:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: disaster_app
+      POSTGRES_PASSWORD: secure_disaster_password
+      POSTGRES_DB: disaster_workflow
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+        reservations:
+          cpus: '0.25'
+          memory: 512M
+
+  monitoring:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - database
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+volumes:
+  postgres-data:
+  grafana-data:
+  model-data:
+  logs-data:
+  predictions-data:

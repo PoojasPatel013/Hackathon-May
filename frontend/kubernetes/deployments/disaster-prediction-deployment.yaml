@@ -1,0 +1,117 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: disaster-prediction-deployment
+  labels:
+    app: disaster-prediction
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: disaster-prediction
+  template:
+    metadata:
+      labels:
+        app: disaster-prediction
+    spec:
+      containers:
+      - name: streamlit-app
+        image: your-dockerhub-username/disaster-prediction:latest
+        ports:
+        - containerPort: 8501
+        env:
+        - name: MODEL_PATH
+          value: /model/disaster_risk_model.pkl
+        - name: WORKFLOW_CONFIG
+          value: /config/workflow_config.yaml
+        - name: LOGGING_CONFIG
+          value: /config/logging_config.json
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1Gi
+          limits:
+            cpu: 2
+            memory: 4Gi
+        volumeMounts:
+        - name: model-volume
+          mountPath: /model
+        - name: workflow-config
+          mountPath: /config/workflow_config.yaml
+          subPath: workflow_config.yaml
+        - name: logging-config
+          mountPath: /config/logging_config.json
+          subPath: logging_config.json
+        - name: data-volume
+          mountPath: /data
+        - name: logs-volume
+          mountPath: /logs
+        - name: predictions-volume
+          mountPath: /predictions
+      volumes:
+      - name: model-volume
+        persistentVolumeClaim:
+          claimName: disaster-model-pvc
+      - name: workflow-config
+        configMap:
+          name: disaster-workflow-config
+      - name: logging-config
+        configMap:
+          name: disaster-logging-config
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: disaster-data-pvc
+      - name: logs-volume
+        persistentVolumeClaim:
+          claimName: disaster-logs-pvc
+      - name: predictions-volume
+        persistentVolumeClaim:
+          claimName: disaster-predictions-pvc
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: disaster-model-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: disaster-data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: disaster-logs-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: disaster-predictions-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi

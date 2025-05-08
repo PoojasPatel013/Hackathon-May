@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: disaster-prediction-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: disaster-prediction
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8501

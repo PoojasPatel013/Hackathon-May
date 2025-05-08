@@ -1,0 +1,29 @@
+Field,Label,Value
+id,Dataset ID,1eb911ba-3681-4a96-b025-ae0c33b80a12
+title,Title of Dataset,Global Landslide Catalogue (NASA)
+name,Dataset URL,global-landslide-catalogue-nasa
+notes,Description,Database of Global Landslide Catalog from NASA collected from 1970 - 2019. It was generated using news feeds and is mostly capturing rain-induced landslide events. More information on metadata and original update source here: https://catalog.data.gov/dataset/global-landslide-catalog-export
+dataset_source,Source,NASA GLC
+organization,Contributor,WFP - World Food Programme
+dataset_date,Reference Period,[2019-05-25T00:00:00 TO 2019-05-25T23:59:59]
+last_modified,Updated,2019-06-10T13:35:19.784748
+data_update_frequency,Expected Update Frequency,As needed
+groups,Location,Philippines
+license_title,License,Creative Commons Attribution International (CC BY)
+methodology,Methodology,Direct Observational Data/Anecdotal Data
+methodology_other,Define Methodology,
+caveats,Caveats/Comments,
+tags,Tags,"geodata, natural disasters"
+resource_1_created,Created,2019-06-10T13:35:20.210403
+resource_1_description,Description,Database of Global Landslide Catalog from NASA collected from 1970 - 2019. It was generated using news feeds and is mostly capturing rain-induced landslide events. More information on metadata and original update source here: https://catalog.data.gov/dataset/global-landslide-catalog-export
+resource_1_format,File Format,SHP
+resource_1_download_url,Download URL,https://data.humdata.org/dataset/1eb911ba-3681-4a96-b025-ae0c33b80a12/resource/ed703c45-2001-4286-ba16-8248c17fec80/download/global_landslide_catalog_nasa.zip
+resource_1_id,Resource ID,ed703c45-2001-4286-ba16-8248c17fec80
+resource_1_last_modified,Updated,2019-06-10T13:35:19.784748
+resource_1_metadata_modified,Metadata Updated,2025-04-08T17:53:36.080228
+resource_1_microdata,Microdata,False
+resource_1_dataset_id,Dataset ID,1eb911ba-3681-4a96-b025-ae0c33b80a12
+resource_1_resource_type,Resource Type,file.upload
+resource_1_name,Resource Name,global_landslide_catalog_NASA.zip
+resource_1_mimetype,MIME Type,application/zip
+resource_1_size,Size,3.4M
