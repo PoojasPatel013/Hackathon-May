@@ -1,0 +1,6 @@
+2025-05-09 11:09:42,321 [INFO] predict: Attempting to load model from: C:\Users\Disha\Downloads\new\frontend\streamlit_app\model\disaster_risk_model.pkl
+2025-05-09 11:09:42,370 [ERROR] predict: Comprehensive error loading model from C:\Users\Disha\Downloads\new\frontend\streamlit_app\model\disaster_risk_model.pkl: Can't get attribute 'DisasterRiskNetwork' on <module '__main__' from 'streamlit_app/app.py'>
+2025-05-09 11:09:42,372 [ERROR] disaster_prediction: Predictor initialization error: Can't get attribute 'DisasterRiskNetwork' on <module '__main__' from 'streamlit_app/app.py'>
+2025-05-09 11:11:01,070 [INFO] predict: Attempting to load model from: C:\Users\Disha\Downloads\new\frontend\streamlit_app\model\disaster_risk_model.pkl
+2025-05-09 11:11:01,083 [ERROR] predict: Comprehensive error loading model from C:\Users\Disha\Downloads\new\frontend\streamlit_app\model\disaster_risk_model.pkl: Can't get attribute 'DisasterRiskNetwork' on <module '__main__' from 'app.py'>
+2025-05-09 11:11:01,086 [ERROR] disaster_prediction: Predictor initialization error: Can't get attribute 'DisasterRiskNetwork' on <module '__main__' from 'app.py'>

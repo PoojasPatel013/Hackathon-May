@@ -1,7 +1,5 @@
 import streamlit as st
-import numpy as np
 import logging
-from frontend.predict import DisasterRiskPredictor
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, 
@@ -44,9 +42,7 @@ def disaster_risk_prediction_page(predictor):
             
             # Visualize probabilities
             st.subheader("Risk Probabilities")
-            risk_categories = predictor.config['predictions'].get('risk_categories', 
-                ['Very Low Risk', 'Low Risk', 'Moderate Risk', 'High Risk', 'Extreme Risk']
-            )
+            risk_categories = ['Very Low Risk', 'Low Risk', 'Moderate Risk', 'High Risk', 'Extreme Risk']
             
             for category, prob in zip(risk_categories, prediction['probabilities']):
                 st.progress(prob)
@@ -55,21 +51,3 @@ def disaster_risk_prediction_page(predictor):
         except Exception as e:
             st.error(f"Prediction error: {e}")
             logger.error(f"Prediction error: {e}")
-
-def main():
-    """
-    Main function to demonstrate predictor usage
-    """
-    try:
-        # Initialize predictor
-        predictor = DisasterRiskPredictor()
-        
-        # Run the prediction page
-        disaster_risk_prediction_page(predictor)
-    
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
-        logger.error(f"An error occurred: {e}")
-
-if __name__ == "__main__":
-    main()

@@ -1,28 +1,15 @@
 import os
-import sys
 import streamlit as st
 import pandas as pd
 import geopandas as gpd
 import plotly.express as px
-import plotly.graph_objs as go
 import numpy as np
 import logging
-
-# Add frontend directory to Python path
-frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-sys.path.insert(0, frontend_dir)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, 
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
-
-# Try relative import first
-try:
-    from predict import DisasterRiskPredictor
-except ImportError:
-    # Fallback to absolute import
-    from frontend.predict import DisasterRiskPredictor
 
 def load_world_map():
     """
@@ -137,21 +124,3 @@ def generate_risk_map(predictor):
     except Exception as e:
         st.error(f"Error generating risk map: {e}")
         logger.error(f"Error generating risk map: {e}")
-
-def main():
-    """
-    Main function to demonstrate map generation
-    """
-    try:
-        # Initialize predictor
-        predictor = DisasterRiskPredictor()
-        
-        # Generate risk map
-        generate_risk_map(predictor)
-    
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
-        logger.error(f"An error occurred: {e}")
-
-if __name__ == "__main__":
-    main()

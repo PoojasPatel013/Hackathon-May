@@ -3,121 +3,32 @@ import sys
 import streamlit as st
 import yaml
 import logging
-import json
 from logging.config import dictConfig
 
-
-# Add frontend directory to Python path
-frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.insert(0, frontend_dir)
-
-# Explicitly add the current directory and parent directories
+# Add the parent directory to Python path to make imports work
 current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir)
 sys.path.insert(0, current_dir)
 
-# Try relative import first
-try:
-    from components.risk_assessment import disaster_risk_prediction_page
-    from components.map_visualization import generate_risk_map
-    from predict import DisasterRiskPredictor
-except ImportError:
-    try:
-        # Try another relative import strategy
-        from streamlit_app.components.risk_assessment import disaster_risk_prediction_page
-        from streamlit_app.components.map_visualization import generate_risk_map
-        from frontend.predict import DisasterRiskPredictor
-    except ImportError:
-        # Absolute import as last resort
-        from frontend.streamlit_app.components.risk_assessment import disaster_risk_prediction_page
-        from frontend.streamlit_app.components.map_visualization import generate_risk_map
-        from frontend.predict import DisasterRiskPredictor
+# Print paths for debugging
+print(f"Current directory: {current_dir}")
+print(f"Parent directory: {parent_dir}")
+print(f"Python path: {sys.path}")
 
-# Modify import strategy to handle potential PyTorch import issues
-def safe_import(module_path):
-    try:
-        # Use importlib for more robust importing
-        import importlib
-        module = importlib.import_module(module_path)
-        return module
-    except ImportError as e:
-        print(f"Import error for {module_path}: {e}")
-        return None
-
-# Try importing with multiple strategies
-def import_components():
-    # Possible import paths
-    import_strategies = [
-        # Strategy 1: Relative imports
-        {
-            'risk_assessment': 'components.risk_assessment',
-            'map_visualization': 'components.map_visualization',
-            'predictor': 'predict'
-        },
-        # Strategy 2: Streamlit app imports
-        {
-            'risk_assessment': 'streamlit_app.components.risk_assessment',
-            'map_visualization': 'streamlit_app.components.map_visualization',
-            'predictor': 'frontend.predict'
-        },
-        # Strategy 3: Absolute imports
-        {
-            'risk_assessment': 'frontend.streamlit_app.components.risk_assessment',
-            'map_visualization': 'frontend.streamlit_app.components.map_visualization',
-            'predictor': 'frontend.predict'
-        }
-    ]
-    
-    # Try each import strategy
-    for strategy in import_strategies:
-        try:
-            # Import modules
-            risk_assessment = safe_import(strategy['risk_assessment'])
-            map_visualization = safe_import(strategy['map_visualization'])
-            predictor = safe_import(strategy['predictor'])
-            
-            # Check if all imports are successful
-            if all([risk_assessment, map_visualization, predictor]):
-                return (
-                    risk_assessment.disaster_risk_prediction_page,
-                    map_visualization.generate_risk_map,
-                    predictor.DisasterRiskPredictor
-                )
-        except Exception as e:
-            print(f"Import strategy failed: {e}")
-            continue
-    
-    # If all strategies fail
-    raise ImportError("Could not import required modules. Please check your project structure and imports.")
-
-# Modify the main import section
-try:
-    # Add sys.path manipulation for additional import paths
-    import sys
-    frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-    sys.path.insert(0, frontend_dir)
-    
-    # Attempt to import components
-    disaster_risk_prediction_page, generate_risk_map, DisasterRiskPredictor = import_components()
-except ImportError as e:
-    st.error(f"Critical Import Error: {e}")
-    st.error("Unable to load application components. Please check your project configuration.")
-    
-    # Provide a fallback mechanism
-    def dummy_page(predictor):
-        st.error("Page not available due to import errors")
-    
-    disaster_risk_prediction_page = dummy_page
-    generate_risk_map = dummy_page
-    DisasterRiskPredictor = None
-
+# Import components using direct imports
+from streamlit_app.components.risk_assessment import disaster_risk_prediction_page
+from streamlit_app.components.map_visualization import generate_risk_map
+from streamlit_app.predictor import DisasterRiskPredictor  # Updated import path
 
 def load_workflow_config(config_path=None):
+    """Load workflow configuration from YAML file"""
     if config_path is None:
-        # Define multiple possible paths for the workflow configuration
+        # Define possible paths for the workflow configuration
         possible_paths = [
-            os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config', 'workflow_config.yaml'),
-            os.path.join(os.path.dirname(__file__), '..', 'config', 'workflow_config.yaml'),
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), 'workflow_config.yaml'),
+            os.path.join(parent_dir, 'config', 'workflow_config.yaml'),
+            os.path.join(current_dir, 'config', 'workflow_config.yaml'),
+            os.path.join(current_dir, 'workflow_config.yaml'),
             'workflow_config.yaml'
         ]
         
@@ -141,12 +52,7 @@ def load_workflow_config(config_path=None):
         }
 
 def _create_default_workflow_config():
-    """
-    Create a default workflow configuration file
-    
-    Returns:
-        str: Path to the created default configuration file
-    """
+    """Create a default workflow configuration file"""
     default_config = {
         'workflow': {
             'name': 'Disaster Risk Prediction',
@@ -172,7 +78,7 @@ def _create_default_workflow_config():
     }
     
     # Ensure config directory exists
-    config_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config')
+    config_dir = os.path.join(parent_dir, 'config')
     os.makedirs(config_dir, exist_ok=True)
     
     # Create default config file
@@ -182,9 +88,10 @@ def _create_default_workflow_config():
     
     return config_path
 
-def setup_logging(config_path=None):
+def setup_logging():
+    """Set up logging configuration"""
     # Create logs directory if it doesn't exist
-    logs_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
+    logs_dir = os.path.join(parent_dir, 'logs')
     os.makedirs(logs_dir, exist_ok=True)
 
     # Default logging configuration
@@ -226,7 +133,7 @@ def setup_logging(config_path=None):
 
     # Configure logging
     try:
-        logging.config.dictConfig(default_logging_config)
+        dictConfig(default_logging_config)
     except Exception as e:
         print(f"Error configuring logging: {e}")
         logging.basicConfig(level=logging.INFO)
@@ -239,7 +146,7 @@ def main():
     # Load workflow configuration
     workflow_config = load_workflow_config()
 
-    # Streamlit page configuration MUST be the first Streamlit command
+    # Streamlit page configuration
     st.set_page_config(
         page_title=workflow_config.get('workflow', {}).get('name', 'Disaster Risk Prediction'),
         page_icon="🌪️",

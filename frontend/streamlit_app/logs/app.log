@@ -1,1 +1,0 @@
-2025-05-08 22:19:09,738 [ERROR] disaster_prediction: Predictor initialization error: Can't get attribute 'SimpleDisasterRiskModel' on <module '__main__' from 'app.py'>
