@@ -6,7 +6,7 @@ plotly
 streamlit
 geopandas
 pyyaml
-
+torch
 # Workflow and scheduling
 schedule
 joblib
