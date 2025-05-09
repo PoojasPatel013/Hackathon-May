@@ -5,6 +5,8 @@ namespace: disaster-prediction
 resources:
 - deployments/disaster-prediction-deployment.yaml
 - deployments/airflow-deployment.yaml
+- deployments/streamlit-app-deployment.yaml
 - services/disaster-prediction-service.yaml
 - services/airflow-service.yaml
+- services/streamlit-app-service.yaml 
 - persistent-volume-claims.yaml

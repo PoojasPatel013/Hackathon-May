@@ -1,18 +1,15 @@
-version: '3.8'
-
 services:
   streamlit-app:
     build: 
-      context: ..
-      dockerfile: frontend/Dockerfile.prediction
+      context: .
+      dockerfile: Dockerfile.prediction
     ports:
       - "8501:8501"
     volumes:
-      - ../:/app
+      - ./streamlit_app:/app/streamlit_app
+      - ./config:/config
       - ./data:/data
       - ./logs:/logs
-      - ./models:/model
-      - ./predictions:/predictions
     environment:
       - MODEL_PATH=/model/disaster_risk_model.pkl
       - WORKFLOW_CONFIG=/config/workflow_config.yaml

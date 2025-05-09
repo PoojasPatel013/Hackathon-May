@@ -1,3 +1,4 @@
+# Use Python 3.9 slim base image
 FROM python:3.9-slim
 
 # Install system dependencies
@@ -5,21 +6,21 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
+# Set working directory
 WORKDIR /app
 
 # Create necessary directories
 RUN mkdir -p /config /data /logs /predictions /model
 
-# Copy project files with updated paths
-COPY frontend/streamlit_app /app/streamlit_app
-COPY frontend/predict.py /app/
-COPY disaster_risk_model.pkl /model/
-COPY frontend/config/workflow_config.yaml /config/
-COPY frontend/config/logging_config.json /config/
+# Copy project files with correct paths
+COPY streamlit_app /app/streamlit_app
+COPY streamlit_app/predictor.py /app/streamlit_app/
+COPY streamlit_app/requirements.txt /app/requirements.txt
+COPY config/workflow_config.yaml /config/
+COPY config/logging_config.json /config/
 
 # Install Python dependencies
-COPY frontend/streamlit_app/requirements.txt /app/requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Expose Streamlit port
 EXPOSE 8501
@@ -27,10 +28,6 @@ EXPOSE 8501
 # Environment variables for configuration
 ENV WORKFLOW_CONFIG=/config/workflow_config.yaml
 ENV LOGGING_CONFIG=/config/logging_config.json
-ENV MODEL_PATH=/model/disaster_risk_model.pkl
 
-# Volumes for persistent data
-VOLUME ["/data", "/logs", "/predictions", "/model"]
-
-# Run Streamlit app
-CMD ["streamlit", "run", "streamlit_app/app.py"]
+# Set the default command to run the Streamlit app
+CMD ["streamlit", "run", "/app/streamlit_app/app.py"]

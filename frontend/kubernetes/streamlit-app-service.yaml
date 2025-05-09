@@ -1,0 +1,14 @@
+---
+# kubernetes/services/streamlit-app-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: streamlit-app-service
+  namespace: disaster-prediction
+spec:
+  selector:
+    app: streamlit-app
+  ports:
+  - port: 8501
+    targetPort: 8501
+  type: LoadBalancer

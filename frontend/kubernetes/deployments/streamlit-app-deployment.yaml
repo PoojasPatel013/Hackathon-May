@@ -1,0 +1,38 @@
+# kubernetes/deployments/streamlit-app-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamlit-app
+  namespace: disaster-prediction
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamlit-app
+  template:
+    metadata:
+      labels:
+        app: streamlit-app
+    spec:
+      containers:
+      - name: streamlit-app
+        image: whomee0pooja/disaster-prediction-streamlit:latest
+        ports:
+        - containerPort: 8501
+        volumeMounts:
+        - name: config-volume
+          mountPath: /config
+        - name: data-volume
+          mountPath: /data
+        - name: logs-volume
+          mountPath: /logs
+      volumes:
+      - name: config-volume
+        configMap:
+          name: streamlit-config
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: disaster-model-pvc
+      - name: logs-volume
+        emptyDir: {}
+
