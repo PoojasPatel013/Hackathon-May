@@ -29,3 +29,17 @@
 2025-05-09 11:23:12,620 [INFO] disaster_prediction: Predictor initialized successfully
 2025-05-09 11:23:46,493 [INFO] disaster_prediction: Predictor initialized successfully
 2025-05-09 11:23:46,498 [ERROR] streamlit_app.components.map_visualization: Error loading world map: The geopandas.dataset has been deprecated and was removed in GeoPandas 1.0. You can get the original 'naturalearth_lowres' data from https://www.naturalearthdata.com/downloads/110m-cultural-vectors/.
+2025-05-09 11:26:46,102 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:26:54,202 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:26:54,210 [INFO] streamlit_app.components.map_visualization: Downloading Natural Earth data from https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip
+2025-05-09 11:26:55,278 [ERROR] streamlit_app.components.map_visualization: Failed to download data: HTTP 406
+2025-05-09 11:26:55,282 [WARNING] streamlit_app.components.map_visualization: Using fallback world map data
+2025-05-09 11:26:55,391 [INFO] streamlit_app.components.map_visualization: Caching world map to: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-09 11:26:56,879 [INFO] pyogrio._io: Created 12 records
+2025-05-09 11:28:45,423 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:28:52,206 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:28:52,210 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-09 11:29:57,715 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:30:17,218 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:30:17,222 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-09 11:30:52,734 [INFO] disaster_prediction: Predictor initialized successfully
