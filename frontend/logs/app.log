@@ -4,3 +4,28 @@
 2025-05-09 11:11:01,070 [INFO] predict: Attempting to load model from: C:\Users\Disha\Downloads\new\frontend\streamlit_app\model\disaster_risk_model.pkl
 2025-05-09 11:11:01,083 [ERROR] predict: Comprehensive error loading model from C:\Users\Disha\Downloads\new\frontend\streamlit_app\model\disaster_risk_model.pkl: Can't get attribute 'DisasterRiskNetwork' on <module '__main__' from 'app.py'>
 2025-05-09 11:11:01,086 [ERROR] disaster_prediction: Predictor initialization error: Can't get attribute 'DisasterRiskNetwork' on <module '__main__' from 'app.py'>
+2025-05-09 11:17:56,677 [INFO] streamlit_app.model_loader: Loading model from: C:\Users\Disha\Downloads\new\frontend\streamlit_app\model\disaster_risk_model.pkl
+2025-05-09 11:17:56,705 [ERROR] streamlit_app.model_loader: Error loading model: Can't get attribute 'DisasterRiskNetwork' on <module '__main__' from 'app.py'>
+2025-05-09 11:17:56,706 [ERROR] streamlit_app.predictor: Error loading model: Can't get attribute 'DisasterRiskNetwork' on <module '__main__' from 'app.py'>
+2025-05-09 11:17:56,707 [ERROR] disaster_prediction: Predictor initialization error: Can't get attribute 'DisasterRiskNetwork' on <module '__main__' from 'app.py'>
+2025-05-09 11:21:25,380 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:21:42,925 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:21:47,922 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:21:52,730 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:21:56,688 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:00,655 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:07,340 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:13,876 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:21,946 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:26,677 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:37,658 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:41,017 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:46,905 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:52,044 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:56,277 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:22:57,715 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:23:07,339 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:23:07,342 [ERROR] streamlit_app.components.map_visualization: Error loading world map: The geopandas.dataset has been deprecated and was removed in GeoPandas 1.0. You can get the original 'naturalearth_lowres' data from https://www.naturalearthdata.com/downloads/110m-cultural-vectors/.
+2025-05-09 11:23:12,620 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:23:46,493 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-09 11:23:46,498 [ERROR] streamlit_app.components.map_visualization: Error loading world map: The geopandas.dataset has been deprecated and was removed in GeoPandas 1.0. You can get the original 'naturalearth_lowres' data from https://www.naturalearthdata.com/downloads/110m-cultural-vectors/.
