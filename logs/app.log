@@ -49,3 +49,76 @@
 2025-05-09 11:58:29,046 [INFO] disaster_prediction: Predictor initialized successfully
 2025-05-09 11:58:30,987 [INFO] disaster_prediction: Predictor initialized successfully
 2025-05-09 11:58:30,990 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 20:33:37,403 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:34:02,295 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:34:02,306 [ERROR] disaster_prediction: Page routing error: module 'streamlit' has no attribute 'experimental_rerun'
+2025-05-10 20:34:05,244 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:34:42,898 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:34:43,028 [ERROR] streamlit_app.components.risk_assessment: Prediction error: np.int32(0)
+2025-05-10 20:35:33,505 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:35:33,566 [ERROR] streamlit_app.components.risk_assessment: Prediction error: np.int32(0)
+2025-05-10 20:35:35,731 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:35:35,792 [ERROR] streamlit_app.components.risk_assessment: Prediction error: np.int32(0)
+2025-05-10 20:35:40,842 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:35:40,894 [ERROR] disaster_prediction: Page routing error: `st.session_state.slider_Magnitude` cannot be modified after the widget with key `slider_Magnitude` is instantiated.
+2025-05-10 20:35:46,818 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:35:46,881 [ERROR] streamlit_app.components.risk_assessment: Prediction error: np.int32(0)
+2025-05-10 20:35:55,359 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:35:55,374 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 20:36:00,824 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-10 20:36:16,841 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:41:26,018 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:41:44,245 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:41:44,472 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:41:44,492 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 20:41:45,966 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-10 20:42:10,520 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:42:10,534 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 20:42:10,840 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-10 20:42:16,634 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:42:22,629 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:42:22,680 [ERROR] streamlit_app.components.risk_assessment: Error applying scenario: `st.session_state.slider_Magnitude` cannot be modified after the widget with key `slider_Magnitude` is instantiated.
+2025-05-10 20:42:26,665 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:42:26,704 [ERROR] streamlit_app.components.risk_assessment: Error applying scenario: `st.session_state.slider_Magnitude` cannot be modified after the widget with key `slider_Magnitude` is instantiated.
+2025-05-10 20:42:28,051 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:42:28,103 [ERROR] streamlit_app.components.risk_assessment: Error applying scenario: `st.session_state.slider_Magnitude` cannot be modified after the widget with key `slider_Magnitude` is instantiated.
+2025-05-10 20:42:29,327 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 20:42:29,382 [ERROR] streamlit_app.components.risk_assessment: Error applying scenario: `st.session_state.slider_Magnitude` cannot be modified after the widget with key `slider_Magnitude` is instantiated.
+2025-05-10 20:42:43,071 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:01:27,873 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:01:34,454 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:01:34,455 [ERROR] disaster_prediction: Page routing error: name 'st' is not defined
+2025-05-10 21:01:37,062 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:01:37,063 [ERROR] disaster_prediction: Page routing error: name 'st' is not defined
+2025-05-10 21:02:35,352 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:02:39,172 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:02:43,693 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:02:43,697 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 21:03:28,686 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:03:31,349 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:03:31,356 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 21:03:31,992 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-10 21:03:42,166 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:03:42,182 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 21:03:42,343 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-10 21:03:48,581 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:03:48,596 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 21:03:48,773 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-10 21:03:59,433 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:03:59,447 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 21:03:59,749 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-10 21:04:14,658 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:12:27,246 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:12:35,078 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:12:45,575 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:12:46,594 [ERROR] streamlit_app.components.risk_assessment: Prediction error: All arguments should have the same length. The length of argument `y` is 3, whereas the length of previously-processed arguments ['x'] is 5
+2025-05-10 21:12:56,293 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:12:56,350 [ERROR] streamlit_app.components.risk_assessment: Error applying scenario: `st.session_state.slider_Magnitude` cannot be modified after the widget with key `slider_Magnitude` is instantiated.
+2025-05-10 21:12:59,359 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:12:59,415 [ERROR] streamlit_app.components.risk_assessment: Error applying scenario: `st.session_state.slider_Magnitude` cannot be modified after the widget with key `slider_Magnitude` is instantiated.
+2025-05-10 21:13:04,657 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:13:04,669 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 21:13:05,121 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-10 21:13:34,272 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:14:55,289 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:17:06,979 [INFO] disaster_prediction: Predictor initialized successfully
