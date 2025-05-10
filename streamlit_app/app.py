@@ -387,95 +387,502 @@ def main():
     # Apply custom CSS
     st.markdown("""
     <style>
+    /* Base styles */
+    :root {
+        --primary-color: #2E7D32;
+        --primary-light: #4CAF50;
+        --primary-dark: #1B5E20;
+        --secondary-color: #0277BD;
+        --secondary-light: #039BE5;
+        --secondary-dark: #01579B;
+        --warning-color: #FF9800;
+        --danger-color: #F44336;
+        --success-color: #4CAF50;
+        --info-color: #2196F3;
+        --background-light: #FFFFFF;
+        --background-medium: #F5F7F9;
+        --background-dark: #1E293B;
+        --text-light: #FFFFFF;
+        --text-dark: #1E293B;
+        --text-muted: #64748B;
+        --border-color: #E2E8F0;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --radius-sm: 0.25rem;
+        --radius-md: 0.375rem;
+        --radius-lg: 0.5rem;
+        --radius-xl: 1rem;
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    /* Global styles */
+    body {
+        font-family: var(--font-sans);
+        color: var(--text-dark);
+        background-color: var(--background-medium);
+    }
+    
+    /* Header styles */
     .main-header {
         font-size: 2.5rem;
-        color: #1E88E5;
+        font-weight: 700;
+        color: var(--primary-color);
         text-align: center;
         margin-bottom: 1rem;
         padding-bottom: 1rem;
-        border-bottom: 2px solid #f0f2f6;
+        border-bottom: 2px solid var(--border-color);
     }
+    
     .sub-header {
-        font-size: 1.5rem;
-        color: #0D47A1;
-        margin-top: 1rem;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
     }
+    
+    /* Card styles */
     .card {
+        background-color: var(--background-light);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
         padding: 1.5rem;
-        border-radius: 0.5rem;
-        background-color: #f8f9fa;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1.5rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: 1px solid var(--border-color);
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 0.75rem;
+    }
+    
+    .card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+    
+    /* Hero section */
+    .hero {
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+        color: var(--text-light);
+        padding: 3rem 2rem;
+        border-radius: var(--radius-lg);
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://images.unsplash.com/photo-1542281286-9e0a16bb7366');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+        z-index: 0;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        font-weight: 700;
         margin-bottom: 1rem;
     }
+    
+    .hero-subtitle {
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+    }
+    
+    /* Stat card styles */
+    .stat-card {
+        background-color: var(--background-light);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        text-align: center;
+        border-top: 4px solid var(--primary-color);
+        height: 100%;
+    }
+    
+    .stat-value {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        line-height: 1;
+    }
+    
+    .stat-label {
+        font-size: 1rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+    
+    /* Feature card styles */
+    .feature-card {
+        background-color: var(--background-light);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s, box-shadow 0.2s;
+        border-left: 4px solid var(--secondary-color);
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--secondary-color);
+    }
+    
+    .feature-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--secondary-color);
+        margin-bottom: 0.75rem;
+    }
+    
+    .feature-description {
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+        flex-grow: 1;
+    }
+    
+    /* Button styles */
+    .custom-button {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: var(--text-light);
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius-md);
+        font-weight: 500;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        border: none;
+        width: 100%;
+        text-decoration: none;
+    }
+    
+    .custom-button:hover {
+        background-color: var(--primary-dark);
+    }
+    
+    .custom-button-secondary {
+        background-color: var(--secondary-color);
+    }
+    
+    .custom-button-secondary:hover {
+        background-color: var(--secondary-dark);
+    }
+    
+    /* Info box styles */
     .info-box {
-        background-color: #e3f2fd;
-        border-left: 4px solid #1E88E5;
-        padding: 1rem;
-        margin-bottom: 1rem;
+        background-color: rgba(33, 150, 243, 0.1);
+        border-left: 4px solid var(--info-color);
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+        border-radius: var(--radius-md);
     }
+    
     .warning-box {
-        background-color: #fff8e1;
-        border-left: 4px solid #FFC107;
-        padding: 1rem;
-        margin-bottom: 1rem;
+        background-color: rgba(255, 152, 0, 0.1);
+        border-left: 4px solid var(--warning-color);
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+        border-radius: var(--radius-md);
     }
+    
     .success-box {
-        background-color: #e8f5e9;
-        border-left: 4px solid #4CAF50;
-        padding: 1rem;
-        margin-bottom: 1rem;
+        background-color: rgba(76, 175, 80, 0.1);
+        border-left: 4px solid var(--success-color);
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+        border-radius: var(--radius-md);
     }
+    
     .error-box {
-        background-color: #ffebee;
-        border-left: 4px solid #F44336;
-        padding: 1rem;
-        margin-bottom: 1rem;
+        background-color: rgba(244, 67, 54, 0.1);
+        border-left: 4px solid var(--danger-color);
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+        border-radius: var(--radius-md);
     }
+    
+    /* Dashboard section styles */
+    .dashboard-section {
+        margin-bottom: 2.5rem;
+    }
+    
+    /* Footer styles */
+    footer {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-color);
+        font-size: 0.875rem;
+        color: var(--text-muted);
+    }
+    
+    /* Sidebar styles */
     .sidebar .sidebar-content {
-        background-color: #f8f9fa;
+        background-color: var(--background-light);
     }
+    
+    /* Navigation styles */
+    .nav-link {
+        display: block;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: var(--radius-md);
+        color: var(--text-dark);
+        font-weight: 500;
+        text-decoration: none;
+        transition: background-color 0.2s;
+    }
+    
+    .nav-link:hover {
+        background-color: rgba(33, 150, 243, 0.1);
+        color: var(--secondary-color);
+    }
+    
+    .nav-link.active {
+        background-color: var(--secondary-color);
+        color: var(--text-light);
+    }
+    
+    /* Disaster type badges */
+    .disaster-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .badge-earthquake {
+        background-color: #FF9800;
+        color: white;
+    }
+    
+    .badge-flood {
+        background-color: #2196F3;
+        color: white;
+    }
+    
+    .badge-wildfire {
+        background-color: #F44336;
+        color: white;
+    }
+    
+    .badge-hurricane {
+        background-color: #9C27B0;
+        color: white;
+    }
+    
+    .badge-tsunami {
+        background-color: #00BCD4;
+        color: white;
+    }
+    
+    /* Timeline styles */
+    .timeline {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: var(--border-color);
+    }
+    
+    .timeline-item {
+        position: relative;
+        padding-bottom: 1.5rem;
+    }
+    
+    .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -2rem;
+        top: 0.25rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+    }
+    
+    .timeline-date {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 0.25rem;
+    }
+    
+    .timeline-content {
+        background-color: var(--background-light);
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    /* Metric card styles */
+    .metric-card {
+        background-color: var(--background-light);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        text-align: center;
+        height: 100%;
+        transition: transform 0.2s;
+        border-bottom: 4px solid var(--primary-color);
+    }
+    
+    .metric-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .metric-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+    
+    .metric-label {
+        font-size: 1rem;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+    
+    /* Risk level indicators */
+    .risk-indicator {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+    }
+    
+    .risk-very-low {
+        background-color: #4CAF50;
+    }
+    
+    .risk-low {
+        background-color: #8BC34A;
+    }
+    
+    .risk-moderate {
+        background-color: #FFC107;
+    }
+    
+    .risk-high {
+        background-color: #FF9800;
+    }
+    
+    .risk-extreme {
+        background-color: #F44336;
+    }
+    
+    /* Streamlit specific overrides */
     .stButton>button {
         width: 100%;
     }
-    footer {
-        text-align: center;
-        margin-top: 2rem;
+    
+    /* Make the Streamlit containers full width */
+    .block-container {
+        max-width: 100%;
         padding-top: 1rem;
-        border-top: 1px solid #f0f2f6;
-        font-size: 0.8rem;
-        color: #6c757d;
+        padding-bottom: 1rem;
     }
-    .nav-link {
-        text-decoration: none;
-        color: #1E88E5;
-        font-weight: bold;
-        padding: 0.5rem;
-        border-radius: 0.25rem;
-        margin-bottom: 0.5rem;
-        display: block;
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
     }
-    .nav-link:hover {
-        background-color: #e3f2fd;
+    
+    ::-webkit-scrollbar-track {
+        background: var(--background-medium);
     }
-    .nav-link.active {
-        background-color: #1E88E5;
-        color: white;
+    
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary-light);
+        border-radius: 4px;
     }
-    .metric-card {
-        background-color: white;
-        border-radius: 0.5rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 1rem;
-        text-align: center;
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-color);
     }
-    .metric-value {
-        font-size: 2rem;
-        font-weight: bold;
-        color: #1E88E5;
+    
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
-    .metric-label {
-        font-size: 0.9rem;
-        color: #6c757d;
+    
+    .animate-fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    
+    @keyframes slideInUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    
+    .animate-slide-up {
+        animation: slideInUp 0.5s ease-out;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+        }
     }
     </style>
     """, unsafe_allow_html=True)
@@ -496,7 +903,7 @@ def main():
     
     # Sidebar with improved navigation
     with st.sidebar:
-        st.image("https://images.fineartamerica.com/images-medium-large-5/2-satellite-image-of-hurricane-floyd-nasascience-photo-library.jpg", width=150)
+        st.image("https://images.stockcake.com/public/3/e/6/3e6c0917-925c-438c-94ab-e14ea42a126e_large/purple-storm-fury-stockcake.jpg", width=150)
         st.markdown("### Navigation")
         
         # Navigation buttons with icons
@@ -541,13 +948,34 @@ def main():
     # Main content area based on navigation
     try:
         if st.session_state.page == "Home":
-            # Home dashboard
-            st.markdown("<h2 class='sub-header'>Disaster Risk Prediction Dashboard</h2>", unsafe_allow_html=True)
+            # Hero section
+            st.markdown("""
+            <div class="hero animate-fade-in">
+                <div class="hero-content">
+                    <h1 class="hero-title">Disaster Risk Prediction Platform</h1>
+                    <p class="hero-subtitle">Advanced analytics and visualization for global disaster risk assessment</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 200px;">
+                            <button class="custom-button" onclick="document.querySelector('[key=nav_risk]').click()">
+                                Start Risk Assessment
+                            </button>
+                        </div>
+                        <div style="flex: 1; min-width: 200px;">
+                            <button class="custom-button custom-button-secondary" onclick="document.querySelector('[key=nav_map]').click()">
+                                Explore Global Map
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
             
-            st.markdown("<div class='info-box'>Welcome to the Disaster Risk Prediction platform. This tool helps assess and visualize potential disaster risks based on various environmental and geological factors.</div>", unsafe_allow_html=True)
+            # Key metrics section
+            st.markdown('<div class="dashboard-section animate-slide-up">', unsafe_allow_html=True)
+            st.markdown('<h2 class="sub-header">Key Metrics</h2>', unsafe_allow_html=True)
             
-            # Quick stats in cards
-            col1, col2, col3 = st.columns(3)
+            col1, col2, col3, col4 = st.columns(4)
+            
             with col1:
                 st.markdown("""
                 <div class="metric-card">
@@ -555,6 +983,7 @@ def main():
                     <div class="metric-label">Risk Categories</div>
                 </div>
                 """, unsafe_allow_html=True)
+            
             with col2:
                 st.markdown("""
                 <div class="metric-card">
@@ -562,6 +991,7 @@ def main():
                     <div class="metric-label">Countries Analyzed</div>
                 </div>
                 """, unsafe_allow_html=True)
+            
             with col3:
                 st.markdown("""
                 <div class="metric-card">
@@ -570,55 +1000,179 @@ def main():
                 </div>
                 """, unsafe_allow_html=True)
             
-            # Feature cards
-            st.markdown("<h3 class='sub-header'>Key Features</h3>", unsafe_allow_html=True)
+            with col4:
+                st.markdown("""
+                <div class="metric-card">
+                    <div class="metric-value">7</div>
+                    <div class="metric-label">Disaster Types</div>
+                </div>
+                """, unsafe_allow_html=True)
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+            
+            # Disaster types section
+            st.markdown('<div class="dashboard-section animate-slide-up" style="animation-delay: 0.2s;">', unsafe_allow_html=True)
+            st.markdown('<h2 class="sub-header">Disaster Types</h2>', unsafe_allow_html=True)
+            
+            st.markdown("""
+            <div class="card">
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                    <span class="disaster-badge badge-earthquake">Earthquake</span>
+                    <span class="disaster-badge badge-flood">Flood</span>
+                    <span class="disaster-badge badge-wildfire">Wildfire</span>
+                    <span class="disaster-badge badge-hurricane">Hurricane</span>
+                    <span class="disaster-badge badge-tsunami">Tsunami</span>
+                    <span class="disaster-badge" style="background-color: #795548; color: white;">Landslide</span>
+                    <span class="disaster-badge" style="background-color: #607D8B; color: white;">Volcano</span>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+            
+            # Features section
+            st.markdown('<div class="dashboard-section animate-slide-up" style="animation-delay: 0.3s;">', unsafe_allow_html=True)
+            st.markdown('<h2 class="sub-header">Key Features</h2>', unsafe_allow_html=True)
             
             col1, col2 = st.columns(2)
+            
             with col1:
                 st.markdown("""
-                <div class="card">
-                    <h4>🔍 Risk Assessment</h4>
-                    <p>Predict disaster risk levels based on environmental and geological factors using our advanced neural network model.</p>
-                    <ul>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Risk Assessment</h3>
+                    <p class="feature-description">
+                        Predict disaster risk levels based on environmental and geological factors using our advanced neural network model.
+                    </p>
+                    <ul style="color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1.5rem;">
                         <li>Input customizable risk factors</li>
                         <li>Get instant risk predictions</li>
                         <li>View detailed probability breakdowns</li>
+                        <li>Receive tailored recommendations</li>
                     </ul>
+                    <button class="custom-button" onclick="document.querySelector('[key=nav_risk]').click()">
+                        Start Assessment
+                    </button>
                 </div>
                 """, unsafe_allow_html=True)
-                
-                if st.button("Go to Risk Assessment", key="goto_risk"):
-                    st.session_state.page = "Risk Prediction"
-                    st.rerun()
             
             with col2:
                 st.markdown("""
-                <div class="card">
-                    <h4>🗺️ Global Risk Map</h4>
-                    <p>Visualize disaster risk levels across the globe with our interactive map interface.</p>
-                    <ul>
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3 class="feature-title">Global Risk Map</h3>
+                    <p class="feature-description">
+                        Visualize disaster risk levels across the globe with our interactive map interface.
+                    </p>
+                    <ul style="color: var(--text-muted); padding-left: 1.5rem; margin-bottom: 1.5rem;">
                         <li>Explore risk distribution worldwide</li>
-                        <li>Hover over countries for detailed information</li>
-                        <li>Analyze regional risk patterns</li>
+                        <li>Filter by region or disaster type</li>
+                        <li>View population and GDP impact</li>
+                        <li>Analyze historical disaster patterns</li>
                     </ul>
+                    <button class="custom-button custom-button-secondary" onclick="document.querySelector('[key=nav_map]').click()">
+                        Explore Map
+                    </button>
                 </div>
                 """, unsafe_allow_html=True)
-                
-                if st.button("Explore Global Map", key="goto_map"):
-                    st.session_state.page = "Global Risk Map"
-                    st.rerun()
             
-            # Recent updates section
-            st.markdown("<h3 class='sub-header'>Recent Updates</h3>", unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
+            
+            # Risk levels explanation
+            st.markdown('<div class="dashboard-section animate-slide-up" style="animation-delay: 0.4s;">', unsafe_allow_html=True)
+            st.markdown('<h2 class="sub-header">Understanding Risk Levels</h2>', unsafe_allow_html=True)
+            
             st.markdown("""
             <div class="card">
-                <ul>
-                    <li><strong>May 2025:</strong> Improved UI/UX with interactive dashboard</li>
-                    <li><strong>April 2025:</strong> Enhanced map visualization with country-level details</li>
-                    <li><strong>March 2025:</strong> Updated neural network model with improved accuracy</li>
-                </ul>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <div style="padding: 1rem; border-radius: var(--radius-md); background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4CAF50;">
+                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                            <span class="risk-indicator risk-very-low"></span>
+                            <strong>Very Low Risk</strong>
+                        </div>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">
+                            Minimal probability of a significant disaster. Normal preparedness measures are sufficient.
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 1rem; border-radius: var(--radius-md); background-color: rgba(139, 195, 74, 0.1); border-left: 4px solid #8BC34A;">
+                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                            <span class="risk-indicator risk-low"></span>
+                            <strong>Low Risk</strong>
+                        </div>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">
+                            Small chance of a disaster occurring. Basic precautionary measures are advised.
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 1rem; border-radius: var(--radius-md); background-color: rgba(255, 193, 7, 0.1); border-left: 4px solid #FFC107;">
+                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                            <span class="risk-indicator risk-moderate"></span>
+                            <strong>Moderate Risk</strong>
+                        </div>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">
+                            Notable chance of a disaster. Enhanced preparedness measures should be considered.
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 1rem; border-radius: var(--radius-md); background-color: rgba(255, 152, 0, 0.1); border-left: 4px solid #FF9800;">
+                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                            <span class="risk-indicator risk-high"></span>
+                            <strong>High Risk</strong>
+                        </div>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">
+                            Significant probability of a disaster. Immediate preparedness actions are recommended.
+                        </p>
+                    </div>
+                    
+                    <div style="padding: 1rem; border-radius: var(--radius-md); background-color: rgba(244, 67, 54, 0.1); border-left: 4px solid #F44336;">
+                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+                            <span class="risk-indicator risk-extreme"></span>
+                            <strong>Extreme Risk</strong>
+                        </div>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">
+                            A disaster is highly likely or imminent. Urgent protective actions should be taken.
+                        </p>
+                    </div>
+                </div>
             </div>
             """, unsafe_allow_html=True)
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+            
+            # Recent updates section
+            st.markdown('<div class="dashboard-section animate-slide-up" style="animation-delay: 0.5s;">', unsafe_allow_html=True)
+            st.markdown('<h2 class="sub-header">Recent Updates</h2>', unsafe_allow_html=True)
+            
+            st.markdown("""
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2025</div>
+                    <div class="timeline-content">
+                        <strong>UI/UX Improvements</strong>
+                        <p>Enhanced user interface with interactive dashboard and improved visualization components.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">April 2025</div>
+                    <div class="timeline-content">
+                        <strong>Map Visualization Upgrade</strong>
+                        <p>Enhanced map visualization with country-level details and improved filtering capabilities.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2025</div>
+                    <div class="timeline-content">
+                        <strong>Model Accuracy Improvement</strong>
+                        <p>Updated neural network model with improved accuracy and additional disaster types.</p>
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+            
+            st.markdown('</div>', unsafe_allow_html=True)
             
         elif st.session_state.page == "Risk Prediction":
             disaster_risk_prediction_page(predictor)

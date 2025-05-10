@@ -122,3 +122,12 @@
 2025-05-10 21:13:34,272 [INFO] disaster_prediction: Predictor initialized successfully
 2025-05-10 21:14:55,289 [INFO] disaster_prediction: Predictor initialized successfully
 2025-05-10 21:17:06,979 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:21:05,739 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:28:47,552 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:30:24,912 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:31:21,423 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:31:21,436 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-10 21:31:22,122 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-10 21:31:31,357 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:31:36,684 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-10 21:31:36,759 [ERROR] streamlit_app.components.risk_assessment: Prediction error: All arguments should have the same length. The length of argument `y` is 3, whereas the length of previously-processed arguments ['x'] is 5
