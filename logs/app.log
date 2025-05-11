@@ -131,3 +131,54 @@
 2025-05-10 21:31:31,357 [INFO] disaster_prediction: Predictor initialized successfully
 2025-05-10 21:31:36,684 [INFO] disaster_prediction: Predictor initialized successfully
 2025-05-10 21:31:36,759 [ERROR] streamlit_app.components.risk_assessment: Prediction error: All arguments should have the same length. The length of argument `y` is 3, whereas the length of previously-processed arguments ['x'] is 5
+2025-05-11 11:46:53,717 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 11:51:24,998 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 11:54:42,539 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 11:57:16,191 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 11:58:03,685 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:04:02,269 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:04:58,912 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:05:26,887 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:05:47,823 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:06:24,776 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:06:46,116 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:09:14,510 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:09:21,860 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:09:25,975 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:09:25,995 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-11 12:09:31,794 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-11 12:11:10,839 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:11:14,074 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:11:14,092 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-11 12:11:14,422 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-11 12:11:36,828 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:12:32,050 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:12:34,859 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:15:10,948 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:15:14,251 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:15:22,244 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:15:23,276 [ERROR] streamlit_app.components.risk_assessment: Prediction error: All arguments should have the same length. The length of argument `y` is 3, whereas the length of previously-processed arguments ['x'] is 5
+2025-05-11 12:16:27,494 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:16:31,629 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:16:31,643 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-11 12:16:31,944 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']
+2025-05-11 12:16:48,816 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:18:01,535 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:18:05,209 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:18:30,076 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:18:33,498 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:19:02,634 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:19:06,715 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:21:31,778 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:21:33,765 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:22:19,733 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:22:22,788 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:23:08,931 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:23:11,590 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:23:28,239 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:23:30,827 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:25:44,833 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:25:56,444 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:26:08,635 [INFO] disaster_prediction: Predictor initialized successfully
+2025-05-11 12:26:08,651 [INFO] streamlit_app.components.map_visualization: Loading world map from cache: C:\Users\Disha\Downloads\new\frontend\streamlit_app\data\world_map.geojson
+2025-05-11 12:26:08,949 [ERROR] streamlit_app.components.map_visualization: Error generating risk map: Duplicate column names found: ['Country', 'Risk Level', 'Population', 'GDP', 'Risk Probability', 'Risk Probability']

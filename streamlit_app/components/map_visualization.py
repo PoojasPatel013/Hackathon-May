@@ -378,7 +378,7 @@ def generate_risk_map(predictor):
     
     # Introduction
     st.markdown("""
-    <div style='background-color: #e3f2fd; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+    <div style='background-color: black; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
         <p>This interactive map shows simulated disaster risk levels for countries around the world. 
         The risk levels are generated based on population, GDP, and environmental factors.</p>
     </div>
@@ -532,36 +532,36 @@ def generate_risk_map(predictor):
                 
                 # Map legend and explanation
                 st.markdown("""
-                <div style='background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 10px;'>
-                    <h4>Map Legend</h4>
-                    <div style='display: flex; flex-wrap: wrap;'>
-                        <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
-                            <div style='width: 20px; height: 20px; background-color: #4CAF50; margin-right: 5px;'></div>
-                            <span>Very Low Risk</span>
-                        </div>
-                        <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
-                            <div style='width: 20px; height: 20px; background-color: #8BC34A; margin-right: 5px;'></div>
-                            <span>Low Risk</span>
-                        </div>
-                        <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
-                            <div style='width: 20px; height: 20px; background-color: #FFC107; margin-right: 5px;'></div>
-                            <span>Moderate Risk</span>
-                        </div>
-                        <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
-                            <div style='width: 20px; height: 20px; background-color: #FF9800; margin-right: 5px;'></div>
-                            <span>High Risk</span>
-                        </div>
-                        <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
-                            <div style='width: 20px; height: 20px; background-color: #F44336; margin-right: 5px;'></div>
-                            <span>Extreme Risk</span>
-                        </div>
-                        <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
-                            <div style='width: 20px; height: 20px; background-color: #9E9E9E; margin-right: 5px;'></div>
-                            <span>Unknown Risk</span>
-                        </div>
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
+    <div style='background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 10px;'>
+        <h4 style='color: #1E293B;'>Map Legend</h4>
+        <div style='display: flex; flex-wrap: wrap;'>
+            <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
+                <div style='width: 20px; height: 20px; background-color: #4CAF50; margin-right: 5px;'></div>
+                <span style='color: #1E293B;'>Very Low Risk</span>
+            </div>
+            <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
+                <div style='width: 20px; height: 20px; background-color: #8BC34A; margin-right: 5px;'></div>
+                <span style='color: #1E293B;'>Low Risk</span>
+            </div>
+            <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
+                <div style='width: 20px; height: 20px; background-color: #FFC107; margin-right: 5px;'></div>
+                <span style='color: #1E293B;'>Moderate Risk</span>
+            </div>
+            <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
+                <div style='width: 20px; height: 20px; background-color: #FF9800; margin-right: 5px;'></div>
+                <span style='color: #1E293B;'>High Risk</span>
+            </div>
+            <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
+                <div style='width: 20px; height: 20px; background-color: #F44336; margin-right: 5px;'></div>
+                <span style='color: #1E293B;'>Extreme Risk</span>
+            </div>
+            <div style='display: flex; align-items: center; margin-right: 20px; margin-bottom: 10px;'>
+                <div style='width: 20px; height: 20px; background-color: #9E9E9E; margin-right: 5px;'></div>
+                <span style='color: #1E293B;'>Unknown Risk</span>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
             else:
                 st.warning("No countries match the selected filters. Please adjust your filter criteria.")
         
@@ -709,38 +709,48 @@ def generate_risk_map(predictor):
         # Additional information
         with st.expander("ℹ️ About This Map", expanded=False):
             st.markdown("""
-            ### Understanding the Global Risk Map
+            <div style="color: #1E293B;">
+            <h3>Understanding the Global Risk Map</h3>
             
-            This interactive map visualizes disaster risk levels across countries worldwide. The risk assessment is based on a combination of factors including:
+            <p>This interactive map visualizes disaster risk levels across countries worldwide. The risk assessment is based on a combination of factors including:</p>
             
-            - **Population density**: Higher population density can increase vulnerability to disasters
-            - **Economic factors**: GDP and infrastructure development affect resilience
-            - **Environmental conditions**: Geographic location and climate factors
-            - **Historical disaster data**: Patterns of previous disasters in the region
+            <ul>
+                <li><strong>Population density</strong>: Higher population density can increase vulnerability to disasters</li>
+                <li><strong>Economic factors</strong>: GDP and infrastructure development affect resilience</li>
+                <li><strong>Environmental conditions</strong>: Geographic location and climate factors</li>
+                <li><strong>Historical disaster data</strong>: Patterns of previous disasters in the region</li>
+            </ul>
             
-            ### Data Sources
+            <h3>Data Sources</h3>
             
-            - Country boundaries: Natural Earth Data
-            - Population and GDP: World Bank (simulated for this demonstration)
-            - Risk assessment: Neural network prediction model
+            <ul>
+                <li>Country boundaries: Natural Earth Data</li>
+                <li>Population and GDP: World Bank (simulated for this demonstration)</li>
+                <li>Risk assessment: Neural network prediction model</li>
+            </ul>
             
-            ### Limitations
+            <h3>Limitations</h3>
             
-            This is a simulation for demonstration purposes. In a real-world application, the risk assessment would be based on:
+            <p>This is a simulation for demonstration purposes. In a real-world application, the risk assessment would be based on:</p>
             
-            - Real-time environmental monitoring data
-            - Detailed geological and meteorological information
-            - Historical disaster records
-            - Infrastructure and vulnerability assessments
+            <ul>
+                <li>Real-time environmental monitoring data</li>
+                <li>Detailed geological and meteorological information</li>
+                <li>Historical disaster records</li>
+                <li>Infrastructure and vulnerability assessments</li>
+            </ul>
             
-            ### How to Use This Map
+            <h3>How to Use This Map</h3>
             
-            - **Zoom and pan**: Navigate the map to focus on specific regions
-            - **Hover over countries**: View detailed risk information
-            - **Use filters**: Focus on specific regions or risk levels
-            - **Switch views**: Toggle between risk, population, and GDP visualizations
-            - **View statistics**: Analyze risk distribution and country details in the tabs
-            """)
+            <ul>
+                <li><strong>Zoom and pan</strong>: Navigate the map to focus on specific regions</li>
+                <li><strong>Hover over countries</strong>: View detailed risk information</li>
+                <li><strong>Use filters</strong>: Focus on specific regions or risk levels</li>
+                <li><strong>Switch views</strong>: Toggle between risk, population, and GDP visualizations</li>
+                <li><strong>View statistics</strong>: Analyze risk distribution and country details in the tabs</li>
+            </ul>
+            </div>
+            """, unsafe_allow_html=True)
     
     except Exception as e:
         st.error(f"Error generating risk map: {e}")

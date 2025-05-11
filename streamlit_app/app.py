@@ -384,104 +384,77 @@ def main():
         initial_sidebar_state="expanded"
     )
     
-    # Apply custom CSS
+    
     st.markdown("""
     <style>
-    /* Base styles */
-    :root {
-        --primary-color: #2E7D32;
-        --primary-light: #4CAF50;
-        --primary-dark: #1B5E20;
-        --secondary-color: #0277BD;
-        --secondary-light: #039BE5;
-        --secondary-dark: #01579B;
-        --warning-color: #FF9800;
-        --danger-color: #F44336;
-        --success-color: #4CAF50;
-        --info-color: #2196F3;
-        --background-light: #FFFFFF;
-        --background-medium: #F5F7F9;
-        --background-dark: #1E293B;
-        --text-light: #FFFFFF;
-        --text-dark: #1E293B;
-        --text-muted: #64748B;
-        --border-color: #E2E8F0;
-        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        --radius-sm: 0.25rem;
-        --radius-md: 0.375rem;
-        --radius-lg: 0.5rem;
-        --radius-xl: 1rem;
-        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
+    /* Remove root variables and apply styles directly to elements */
     
     /* Global styles */
     body {
-        font-family: var(--font-sans);
-        color: var(--text-dark);
-        background-color: var(--background-medium);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        color: #1E293B;
+        background-color: #F5F7F9;
     }
-    
+
     /* Header styles */
     .main-header {
         font-size: 2.5rem;
         font-weight: 700;
-        color: var(--primary-color);
+        color: #2E7D32;
         text-align: center;
         margin-bottom: 1rem;
         padding-bottom: 1rem;
-        border-bottom: 2px solid var(--border-color);
+        border-bottom: 2px solid #E2E8F0;
     }
-    
+
     .sub-header {
         font-size: 1.75rem;
         font-weight: 600;
-        color: var(--secondary-color);
+        color: #0277BD;
         margin-top: 1.5rem;
         margin-bottom: 1rem;
     }
-    
-    /* Card styles */
+
+    /* Card styles - each with its own background and text colors */
     .card {
-        background-color: var(--background-light);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
+        background-color: #FFFFFF;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         padding: 1.5rem;
         margin-bottom: 1.5rem;
         transition: transform 0.2s, box-shadow 0.2s;
-        border: 1px solid var(--border-color);
+        border: 1px solid #E2E8F0;
     }
-    
+
     .card:hover {
         transform: translateY(-5px);
-        box-shadow: var(--shadow-lg);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
-    
+
     .card-title {
         font-size: 1.25rem;
         font-weight: 600;
-        color: var(--primary-color);
+        color: #2E7D32;
         margin-bottom: 0.75rem;
     }
-    
+
     .card-icon {
         font-size: 2.5rem;
         margin-bottom: 1rem;
-        color: var(--primary-color);
+        color: #2E7D32;
     }
-    
-    /* Hero section */
+
+    /* Hero section with explicit text color */
     .hero {
-        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
-        color: var(--text-light);
+        background: linear-gradient(135deg, #1B5E20 0%, #01579B 100%);
+        color: #FFFFFF;
         padding: 3rem 2rem;
-        border-radius: var(--radius-lg);
+        border-radius: 0.5rem;
         margin-bottom: 2rem;
         position: relative;
         overflow: hidden;
     }
-    
+
     .hero::before {
         content: "";
         position: absolute;
@@ -495,94 +468,96 @@ def main():
         opacity: 0.15;
         z-index: 0;
     }
-    
+
     .hero-content {
         position: relative;
         z-index: 1;
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 1rem;
+        color: #FFFFFF;
     }
-    
+
     .hero-subtitle {
         font-size: 1.25rem;
         font-weight: 400;
         margin-bottom: 1.5rem;
         opacity: 0.9;
+        color: #FFFFFF;
     }
-    
-    /* Stat card styles */
+
+    /* Stat card styles with explicit colors */
     .stat-card {
-        background-color: var(--background-light);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
+        background-color: #FFFFFF;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         padding: 1.5rem;
         text-align: center;
-        border-top: 4px solid var(--primary-color);
+        border-top: 4px solid #2E7D32;
         height: 100%;
     }
-    
+
     .stat-value {
         font-size: 3rem;
         font-weight: 700;
-        color: var(--primary-color);
+        color: #2E7D32;
         margin-bottom: 0.5rem;
         line-height: 1;
     }
-    
+
     .stat-label {
         font-size: 1rem;
-        color: var(--text-muted);
+        color: #64748B;
         font-weight: 500;
     }
-    
-    /* Feature card styles */
+
+    /* Feature card styles with explicit colors */
     .feature-card {
-        background-color: var(--background-light);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
+        background-color: black;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         padding: 1.5rem;
         height: 100%;
         display: flex;
         flex-direction: column;
         transition: transform 0.2s, box-shadow 0.2s;
-        border-left: 4px solid var(--secondary-color);
+        border-left: 4px solid #0277BD;
     }
-    
+
     .feature-card:hover {
         transform: translateY(-5px);
-        box-shadow: var(--shadow-lg);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
-    
+
     .feature-icon {
         font-size: 2.5rem;
         margin-bottom: 1rem;
-        color: var(--secondary-color);
+        color: #0277BD;
     }
-    
+
     .feature-title {
         font-size: 1.25rem;
         font-weight: 600;
-        color: var(--secondary-color);
+        color: #0277BD;
         margin-bottom: 0.75rem;
     }
-    
+
     .feature-description {
-        color: var(--text-muted);
+        color: #64748B;
         margin-bottom: 1rem;
         flex-grow: 1;
     }
-    
-    /* Button styles */
+
+    /* Button styles with explicit colors */
     .custom-button {
         display: inline-block;
-        background-color: var(--primary-color);
-        color: var(--text-light);
+        background-color: #2E7D32;
+        color: #FFFFFF;
         padding: 0.75rem 1.5rem;
-        border-radius: var(--radius-md);
+        border-radius: 0.375rem;
         font-weight: 500;
         text-align: center;
         cursor: pointer;
@@ -591,95 +566,99 @@ def main():
         width: 100%;
         text-decoration: none;
     }
-    
+
     .custom-button:hover {
-        background-color: var(--primary-dark);
+        background-color: #1B5E20;
     }
-    
+
     .custom-button-secondary {
-        background-color: var(--secondary-color);
+        background-color: #0277BD;
     }
-    
+
     .custom-button-secondary:hover {
-        background-color: var(--secondary-dark);
+        background-color: #01579B;
     }
-    
-    /* Info box styles */
+
+    /* Info box styles with explicit colors */
     .info-box {
         background-color: rgba(33, 150, 243, 0.1);
-        border-left: 4px solid var(--info-color);
+        border-left: 4px solid #2196F3;
         padding: 1.25rem;
         margin-bottom: 1.5rem;
-        border-radius: var(--radius-md);
+        border-radius: 0.375rem;
+        color: #1E293B;
     }
-    
+
     .warning-box {
         background-color: rgba(255, 152, 0, 0.1);
-        border-left: 4px solid var(--warning-color);
+        border-left: 4px solid #FF9800;
         padding: 1.25rem;
         margin-bottom: 1.5rem;
-        border-radius: var(--radius-md);
+        border-radius: 0.375rem;
+        color: #1E293B;
     }
-    
+
     .success-box {
         background-color: rgba(76, 175, 80, 0.1);
-        border-left: 4px solid var(--success-color);
+        border-left: 4px solid #4CAF50;
         padding: 1.25rem;
         margin-bottom: 1.5rem;
-        border-radius: var(--radius-md);
+        border-radius: 0.375rem;
+        color: #1E293B;
     }
-    
+
     .error-box {
         background-color: rgba(244, 67, 54, 0.1);
-        border-left: 4px solid var(--danger-color);
+        border-left: 4px solid #F44336;
         padding: 1.25rem;
         margin-bottom: 1.5rem;
-        border-radius: var(--radius-md);
+        border-radius: 0.375rem;
+        color: #1E293B;
     }
-    
+
     /* Dashboard section styles */
     .dashboard-section {
         margin-bottom: 2.5rem;
     }
-    
-    /* Footer styles */
+
+    /* Footer styles with explicit colors */
     footer {
         text-align: center;
         margin-top: 3rem;
         padding-top: 1.5rem;
-        border-top: 1px solid var(--border-color);
+        border-top: 1px solid #E2E8F0;
         font-size: 0.875rem;
-        color: var(--text-muted);
+        color: #64748B;
     }
-    
-    /* Sidebar styles */
+
+    /* Sidebar styles with explicit colors */
     .sidebar .sidebar-content {
-        background-color: var(--background-light);
+        background-color: #FFFFFF;
     }
-    
-    /* Navigation styles */
+
+    /* Navigation styles with explicit colors */
     .nav-link {
         display: block;
         padding: 0.75rem 1rem;
         margin-bottom: 0.5rem;
-        border-radius: var(--radius-md);
-        color: var(--text-dark);
+        border-radius: 0.375rem;
+        color: #1E293B;
         font-weight: 500;
         text-decoration: none;
         transition: background-color 0.2s;
     }
-    
+
     .nav-link:hover {
         background-color: rgba(33, 150, 243, 0.1);
-        color: var(--secondary-color);
+        color: #0277BD;
     }
-    
+
     .nav-link.active {
-        background-color: var(--secondary-color);
-        color: var(--text-light);
+        background-color: #0277BD;
+        color: #FFFFFF;
     }
-    
-    /* Disaster type badges */
+
+    /* Disaster type badges with explicit colors */
     .disaster-badge {
         display: inline-block;
         padding: 0.25rem 0.75rem;
@@ -688,110 +667,59 @@ def main():
         font-weight: 600;
         margin-right: 0.5rem;
         margin-bottom: 0.5rem;
+        color: #FFFFFF;
     }
-    
+
     .badge-earthquake {
         background-color: #FF9800;
-        color: white;
     }
-    
+
     .badge-flood {
         background-color: #2196F3;
-        color: white;
     }
-    
+
     .badge-wildfire {
         background-color: #F44336;
-        color: white;
     }
-    
+
     .badge-hurricane {
         background-color: #9C27B0;
-        color: white;
     }
-    
+
     .badge-tsunami {
         background-color: #00BCD4;
-        color: white;
     }
-    
-    /* Timeline styles */
-    .timeline {
-        position: relative;
-        padding-left: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .timeline::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background-color: var(--border-color);
-    }
-    
-    .timeline-item {
-        position: relative;
-        padding-bottom: 1.5rem;
-    }
-    
-    .timeline-item::before {
-        content: "";
-        position: absolute;
-        left: -2rem;
-        top: 0.25rem;
-        width: 1rem;
-        height: 1rem;
-        border-radius: 50%;
-        background-color: var(--primary-color);
-    }
-    
-    .timeline-date {
-        font-size: 0.875rem;
-        font-weight: 600;
-        color: var(--primary-color);
-        margin-bottom: 0.25rem;
-    }
-    
-    .timeline-content {
-        background-color: var(--background-light);
-        padding: 1rem;
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-sm);
-    }
-    
-    /* Metric card styles */
+
+    /* Metric card styles with explicit colors */
     .metric-card {
-        background-color: var(--background-light);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
+        background-color: #FFFFFF;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         padding: 1.5rem;
         text-align: center;
         height: 100%;
         transition: transform 0.2s;
-        border-bottom: 4px solid var(--primary-color);
+        border-bottom: 4px solid #2E7D32;
     }
-    
+
     .metric-card:hover {
         transform: translateY(-5px);
     }
-    
+
     .metric-value {
         font-size: 2.5rem;
         font-weight: 700;
-        color: var(--primary-color);
+        color: #2E7D32;
         margin-bottom: 0.5rem;
     }
-    
+
     .metric-label {
         font-size: 1rem;
-        color: var(--text-muted);
+        color: #64748B;
         font-weight: 500;
     }
-    
-    /* Risk level indicators */
+
+    /* Risk level indicators with explicit colors */
     .risk-indicator {
         display: inline-block;
         width: 1rem;
@@ -799,77 +727,77 @@ def main():
         border-radius: 50%;
         margin-right: 0.5rem;
     }
-    
+
     .risk-very-low {
         background-color: #4CAF50;
     }
-    
+
     .risk-low {
         background-color: #8BC34A;
     }
-    
+
     .risk-moderate {
         background-color: #FFC107;
     }
-    
+
     .risk-high {
         background-color: #FF9800;
     }
-    
+
     .risk-extreme {
         background-color: #F44336;
     }
-    
+
     /* Streamlit specific overrides */
     .stButton>button {
         width: 100%;
     }
-    
+
     /* Make the Streamlit containers full width */
     .block-container {
         max-width: 100%;
         padding-top: 1rem;
         padding-bottom: 1rem;
     }
-    
-    /* Custom scrollbar */
+
+    /* Custom scrollbar with explicit colors */
     ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
     }
-    
+
     ::-webkit-scrollbar-track {
-        background: var(--background-medium);
+        background: #F5F7F9;
     }
-    
+
     ::-webkit-scrollbar-thumb {
-        background: var(--primary-light);
+        background: #4CAF50;
         border-radius: 4px;
     }
-    
+
     ::-webkit-scrollbar-thumb:hover {
-        background: var(--primary-color);
+        background: #2E7D32;
     }
-    
+
     /* Animations */
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
     }
-    
+
     .animate-fade-in {
         animation: fadeIn 0.5s ease-in-out;
     }
-    
+
     @keyframes slideInUp {
         from { transform: translateY(20px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
     }
-    
+
     .animate-slide-up {
         animation: slideInUp 0.5s ease-out;
     }
-    
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
         .hero-title {
@@ -1081,97 +1009,86 @@ def main():
             # Risk levels explanation
             st.markdown('<div class="dashboard-section animate-slide-up" style="animation-delay: 0.4s;">', unsafe_allow_html=True)
             st.markdown('<h2 class="sub-header">Understanding Risk Levels</h2>', unsafe_allow_html=True)
-            
+
+            # Split into multiple markdown calls to avoid HTML rendering issues
             st.markdown("""
-            <div class="card">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                    <div style="padding: 1rem; border-radius: var(--radius-md); background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4CAF50;">
-                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                            <span class="risk-indicator risk-very-low"></span>
-                            <strong>Very Low Risk</strong>
-                        </div>
-                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">
-                            Minimal probability of a significant disaster. Normal preparedness measures are sufficient.
-                        </p>
-                    </div>
-                    
-                    <div style="padding: 1rem; border-radius: var(--radius-md); background-color: rgba(139, 195, 74, 0.1); border-left: 4px solid #8BC34A;">
-                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                            <span class="risk-indicator risk-low"></span>
-                            <strong>Low Risk</strong>
-                        </div>
-                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">
-                            Small chance of a disaster occurring. Basic precautionary measures are advised.
-                        </p>
-                    </div>
-                    
-                    <div style="padding: 1rem; border-radius: var(--radius-md); background-color: rgba(255, 193, 7, 0.1); border-left: 4px solid #FFC107;">
-                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                            <span class="risk-indicator risk-moderate"></span>
-                            <strong>Moderate Risk</strong>
-                        </div>
-                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">
-                            Notable chance of a disaster. Enhanced preparedness measures should be considered.
-                        </p>
-                    </div>
-                    
-                    <div style="padding: 1rem; border-radius: var(--radius-md); background-color: rgba(255, 152, 0, 0.1); border-left: 4px solid #FF9800;">
-                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                            <span class="risk-indicator risk-high"></span>
-                            <strong>High Risk</strong>
-                        </div>
-                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">
-                            Significant probability of a disaster. Immediate preparedness actions are recommended.
-                        </p>
-                    </div>
-                    
-                    <div style="padding: 1rem; border-radius: var(--radius-md); background-color: rgba(244, 67, 54, 0.1); border-left: 4px solid #F44336;">
-                        <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                            <span class="risk-indicator risk-extreme"></span>
-                            <strong>Extreme Risk</strong>
-                        </div>
-                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-muted);">
-                            A disaster is highly likely or imminent. Urgent protective actions should be taken.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-            
-            st.markdown('</div>', unsafe_allow_html=True)
-            
-            # Recent updates section
-            st.markdown('<div class="dashboard-section animate-slide-up" style="animation-delay: 0.5s;">', unsafe_allow_html=True)
-            st.markdown('<h2 class="sub-header">Recent Updates</h2>', unsafe_allow_html=True)
-            
+<div class="card">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+""", unsafe_allow_html=True)
+
+            # Very Low Risk
             st.markdown("""
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">May 2025</div>
-                    <div class="timeline-content">
-                        <strong>UI/UX Improvements</strong>
-                        <p>Enhanced user interface with interactive dashboard and improved visualization components.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">April 2025</div>
-                    <div class="timeline-content">
-                        <strong>Map Visualization Upgrade</strong>
-                        <p>Enhanced map visualization with country-level details and improved filtering capabilities.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">March 2025</div>
-                    <div class="timeline-content">
-                        <strong>Model Accuracy Improvement</strong>
-                        <p>Updated neural network model with improved accuracy and additional disaster types.</p>
-                    </div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-            
+<div style="padding: 1rem; border-radius: 0.375rem; background-color: rgba(76, 175, 80, 0.1); border-left: 4px solid #4CAF50;">
+    <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+        <span class="risk-indicator risk-very-low"></span>
+        <strong>Very Low Risk</strong>
+    </div>
+    <p style="margin: 0; font-size: 0.875rem; color: #64748B;">
+        Minimal probability of a significant disaster. Normal preparedness measures are sufficient.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+            # Low Risk
+            st.markdown("""
+<div style="padding: 1rem; border-radius: 0.375rem; background-color: rgba(139, 195, 74, 0.1); border-left: 4px solid #8BC34A;">
+    <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+        <span class="risk-indicator risk-low"></span>
+        <strong>Low Risk</strong>
+    </div>
+    <p style="margin: 0; font-size: 0.875rem; color: #64748B;">
+        Small chance of a disaster occurring. Basic precautionary measures are advised.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+            # Moderate Risk
+            st.markdown("""
+<div style="padding: 1rem; border-radius: 0.375rem; background-color: rgba(255, 193, 7, 0.1); border-left: 4px solid #FFC107;">
+    <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+        <span class="risk-indicator risk-moderate"></span>
+        <strong>Moderate Risk</strong>
+    </div>
+    <p style="margin: 0; font-size: 0.875rem; color: #64748B;">
+        Notable chance of a disaster. Enhanced preparedness measures should be considered.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+            # High Risk
+            st.markdown("""
+<div style="padding: 1rem; border-radius: 0.375rem; background-color: rgba(255, 152, 0, 0.1); border-left: 4px solid #FF9800;">
+    <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+        <span class="risk-indicator risk-high"></span>
+        <strong>High Risk</strong>
+    </div>
+    <p style="margin: 0; font-size: 0.875rem; color: #64748B;">
+        Significant probability of a disaster. Immediate preparedness actions are recommended.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+            # Extreme Risk
+            st.markdown("""
+<div style="padding: 1rem; border-radius: 0.375rem; background-color: rgba(244, 67, 54, 0.1); border-left: 4px solid #F44336;">
+    <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
+        <span class="risk-indicator risk-extreme"></span>
+        <strong>Extreme Risk</strong>
+    </div>
+    <p style="margin: 0; font-size: 0.875rem; color: #64748B;">
+        A disaster is highly likely or imminent. Urgent protective actions should be taken.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+            st.markdown("""
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+           
+           
+
             st.markdown('</div>', unsafe_allow_html=True)
             
         elif st.session_state.page == "Risk Prediction":

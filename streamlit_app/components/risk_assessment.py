@@ -320,12 +320,12 @@ def disaster_risk_prediction_page(predictor):
         predictor (DisasterRiskPredictor): Initialized predictor instance
     """
     # Page header with icon
-    st.markdown("<h1 style='text-align: center;'>🔍 Disaster Risk Assessment</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: beige;'>🔍 Disaster Risk Assessment</h1>", unsafe_allow_html=True)
     
     # Introduction
     st.markdown("""
     <div style='background-color: #e3f2fd; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
-        <p>This tool helps assess potential disaster risks based on environmental and geological factors. 
+        <p style='color: #1E293B; margin: 0;'>This tool helps assess potential disaster risks based on environmental and geological factors. 
         Enter the values for each factor below and click "Predict Risk" to get an assessment.</p>
     </div>
     """, unsafe_allow_html=True)
@@ -334,7 +334,7 @@ def disaster_risk_prediction_page(predictor):
     col1, col2 = st.columns([3, 2])
     
     with col1:
-        st.markdown("### Enter Risk Factors")
+        st.markdown("<h3 style='color: beige;'>Enter Risk Factors</h3>", unsafe_allow_html=True)
         
         # Create a form for input
         with st.form("risk_assessment_form"):
@@ -355,7 +355,7 @@ def disaster_risk_prediction_page(predictor):
                 # Create expandable section with feature info
                 with st.expander(f"{feature} ({feature_info['min']} - {feature_info['max']})", expanded=True):
                     # Description
-                    st.markdown(f"<p style='margin-bottom: 10px;'>{feature_info['description']}</p>", unsafe_allow_html=True)
+                    st.markdown(f"<p style='margin-bottom: 10px; color: beige;'>{feature_info['description']}</p>", unsafe_allow_html=True)
                     
                     # Slider for input
                     value = st.slider(
@@ -378,8 +378,8 @@ def disaster_risk_prediction_page(predictor):
     
     with col2:
         # Show preset scenarios in the sidebar
-        st.markdown("### Preset Scenarios")
-        st.markdown("Select a scenario to automatically fill the form:")
+        st.markdown("<h3 style='color: beige;'>Preset Scenarios</h3>", unsafe_allow_html=True)
+        st.markdown("<p style='color: beige;'>Select a scenario to automatically fill the form:</p>", unsafe_allow_html=True)
         
         # Define preset scenarios
         scenarios = {
@@ -406,8 +406,8 @@ def disaster_risk_prediction_page(predictor):
         # Information box
         st.markdown("""
         <div style='background-color: #fff8e1; padding: 15px; border-radius: 5px; margin-top: 20px;'>
-            <h4 style='margin-top: 0;'>How to use this tool:</h4>
-            <ol>
+            <h4 style='margin-top: 0; color: #1E293B;'>How to use this tool:</h4>
+            <ol style='color: #1E293B;'>
                 <li>Enter values for each risk factor</li>
                 <li>Or select a preset scenario</li>
                 <li>Click "Predict Risk" to get results</li>
@@ -434,7 +434,7 @@ def disaster_risk_prediction_page(predictor):
                 risk_info = RISK_DESCRIPTIONS[risk_level]
                 
                 # Display results in a visually appealing way
-                st.markdown("<h2 style='text-align: center; margin-top: 30px;'>Prediction Results</h2>", unsafe_allow_html=True)
+                st.markdown("<h2 style='text-align: center; margin-top: 30px; color: #1E293B;'>Prediction Results</h2>", unsafe_allow_html=True)
                 
                 # Risk gauge
                 st.plotly_chart(
@@ -446,13 +446,13 @@ def disaster_risk_prediction_page(predictor):
                 st.markdown(f"""
                 <div style='background-color: {risk_info['color']}22; padding: 20px; border-radius: 5px; margin-bottom: 20px; border-left: 5px solid {risk_info['color']};'>
                     <h3 style='margin-top: 0; color: {risk_info['color']};'>{risk_level}</h3>
-                    <p><strong>Description:</strong> {risk_info['description']}</p>
-                    <p><strong>Confidence:</strong> {prediction['risk_level']['probability']:.2%}</p>
+                    <p style='color: #1E293B;'><strong>Description:</strong> {risk_info['description']}</p>
+                    <p style='color: #1E293B;'><strong>Confidence:</strong> {prediction['risk_level']['probability']:.2%}</p>
                 </div>
                 """, unsafe_allow_html=True)
                 
                 # Probability distribution
-                st.subheader("Risk Probability Distribution")
+                st.markdown("<h3 style='color: #1E293B;'>Risk Probability Distribution</h3>", unsafe_allow_html=True)
                 st.plotly_chart(
                     create_probability_chart(
                         prediction['probabilities'],
@@ -465,7 +465,7 @@ def disaster_risk_prediction_page(predictor):
                 st.markdown(f"""
                 <div style='background-color: #e8f5e9; padding: 20px; border-radius: 5px; margin-top: 20px; border-left: 5px solid #4CAF50;'>
                     <h3 style='margin-top: 0; color: #2E7D32;'>Recommended Actions</h3>
-                    <ul>
+                    <ul style='color: #1E293B;'>
                         {"".join([f"<li>{rec}</li>" for rec in risk_info['recommendations']])}
                     </ul>
                 </div>
@@ -489,26 +489,33 @@ def disaster_risk_prediction_page(predictor):
     
     # Additional information section
     with st.expander("ℹ️ About Risk Assessment", expanded=False):
+        # Use separate markdown calls for each section to ensure proper rendering
+        st.markdown("<h3 style='color: white;'>Understanding Risk Factors</h3>", unsafe_allow_html=True)
+        
+        st.markdown("<p style='color: white;'>The disaster risk prediction model uses the following factors to assess risk:</p>", unsafe_allow_html=True)
+        
         st.markdown("""
-        ### Understanding Risk Factors
+        <ul style='color: white;'>
+            <li><strong>Magnitude</strong>: The strength or intensity of the event (e.g., earthquake magnitude)</li>
+            <li><strong>Depth</strong>: The depth of the event below the surface (e.g., earthquake hypocenter depth)</li>
+            <li><strong>Wind Speed</strong>: The speed of wind in the area</li>
+            <li><strong>Tsunami Intensity</strong>: The intensity of potential tsunami waves</li>
+            <li><strong>Significance</strong>: The overall significance or impact potential of the event</li>
+        </ul>
+        """, unsafe_allow_html=True)
         
-        The disaster risk prediction model uses the following factors to assess risk:
+        st.markdown("<h3 style='color: white;'>Risk Levels Explained</h3>", unsafe_allow_html=True)
         
-        - **Magnitude**: The strength or intensity of the event (e.g., earthquake magnitude)
-        - **Depth**: The depth of the event below the surface (e.g., earthquake hypocenter depth)
-        - **Wind Speed**: The speed of wind in the area
-        - **Tsunami Intensity**: The intensity of potential tsunami waves
-        - **Significance**: The overall significance or impact potential of the event
+        st.markdown("""
+        <ul style='color: white;'>
+            <li><strong>Very Low Risk</strong>: Minimal probability of a significant disaster</li>
+            <li><strong>Low Risk</strong>: Small chance of a disaster occurring</li>
+            <li><strong>Moderate Risk</strong>: Notable chance of a disaster</li>
+            <li><strong>High Risk</strong>: Significant probability of a disaster</li>
+            <li><strong>Extreme Risk</strong>: A disaster is highly likely or imminent</li>
+        </ul>
+        """, unsafe_allow_html=True)
         
-        ### Risk Levels Explained
+        st.markdown("<h3 style='color: white;'>Model Information</h3>", unsafe_allow_html=True)
         
-        - **Very Low Risk**: Minimal probability of a significant disaster
-        - **Low Risk**: Small chance of a disaster occurring
-        - **Moderate Risk**: Notable chance of a disaster
-        - **High Risk**: Significant probability of a disaster
-        - **Extreme Risk**: A disaster is highly likely or imminent
-        
-        ### Model Information
-        
-        This risk assessment uses a neural network model trained on historical disaster data. The model analyzes the input factors to predict the probability of different risk levels.
-        """)
+        st.markdown("<p style='color: white;'>This risk assessment uses a neural network model trained on historical disaster data. The model analyzes the input factors to predict the probability of different risk levels.</p>", unsafe_allow_html=True)
