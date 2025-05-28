@@ -7,7 +7,7 @@ A comprehensive machine learning platform for predicting and visualizing global 
 - Neural network-based risk prediction
 - Global risk zone mapping
 - Streamlit interactive dashboard
-- Airflow-based model retraining
+- Workflow-based model retraining
 - Kubernetes deployment
 
 ## Setup
