@@ -19,5 +19,3 @@ A comprehensive machine learning platform for predicting and visualizing global 
 - Docker: `docker-compose up`
 - Kubernetes: `kubectl apply -k frontend/kubernetes`
 
-## Contributing
-Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
